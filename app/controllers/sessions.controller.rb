@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
     def create
         @user = User.find_by(email: session_params[:email])
     
+        # .authenticate works with 'has_secure_password'
         if @user && @user.authenticate(session_params[:password])
         login! # session[:user_id] = @user.id, from application_controller.rb
 
@@ -49,5 +50,10 @@ class SessionsController < ApplicationController
         }
     end
 
+    private
+
+    def session_params
+        params.require(:user).permit(:username, :email, :password)
+    end
 
 end
