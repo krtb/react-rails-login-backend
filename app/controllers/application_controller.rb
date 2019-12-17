@@ -9,4 +9,9 @@ class ApplicationController < ActionController::Base
     def login!
         session[:user_id] = @user.id
     end
+
+    def logged_in?
+        # double bang, !!, forces to boolean context and then TRUE
+        !!session[:user_id]
+    end
 end
