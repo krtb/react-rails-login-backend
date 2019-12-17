@@ -14,4 +14,9 @@ class ApplicationController < ActionController::Base
         # double bang, !!, forces to boolean context and then TRUE
         !!session[:user_id]
     end
+
+    def current_user
+        @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    end
+
 end
