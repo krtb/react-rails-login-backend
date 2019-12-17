@@ -4,4 +4,9 @@ class ApplicationController < ActionController::Base
     # security token that Rails generates from our session data and adds to the parameters 
     # sent from a Rails form to a controller action to prevent cross-site request forgery (CSRF) attacks
     skip_before_action :verify_authenticity_token
+
+
+    def login!
+        session[:user_id] = @user.id
+    end
 end
