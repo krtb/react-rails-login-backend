@@ -1,5 +1,5 @@
 {
-  "name": "react_rails_login_api",
+  "name": "react_rails_login_backend",
   "private": true,
   "dependencies": {
     "@rails/actioncable": "^6.0.0",
