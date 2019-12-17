@@ -13,6 +13,7 @@ class UserController < ApplicationController
             errors: ['no users found']
         }
         end
+
     end
 
     def show
@@ -45,6 +46,12 @@ class UserController < ApplicationController
             errors: @user.errors.full_messages
         }
         end
+    end
+
+    private
+    
+    def user_params
+        params.require(:user).permit(:username, :email, :password, :password_confirmation)
     end
 
 end
