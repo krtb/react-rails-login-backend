@@ -40,4 +40,14 @@ class SessionsController < ApplicationController
         end
     end
 
+    def destroy
+        logout! # session.clear, from application_controller.rb
+
+        render json: {
+        status: 200,
+        logged_out: true
+        }
+    end
+
+
 end
